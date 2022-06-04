@@ -4,9 +4,9 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import axios from 'axios';
+import apiUrl from "../pages/api";
 import ListOfQuestions from './../components/list'
 import '../CssStyling/favoriteDislikeStyling.css'
-import apiUrl from "../pages/api";
 export default function Favourite() {
 
   const [list, seList] = useState([]);
