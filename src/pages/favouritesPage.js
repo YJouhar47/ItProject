@@ -8,6 +8,7 @@ import ListOfQuestions from './../components/list'
 import Button from '@mui/material/Button';
 import styled from '@emotion/styled';
 import '../CssStyling/favoriteDislikeStyling.css'
+import apiUrl from "./api";
 
 export default function Favourite() {
 
@@ -16,7 +17,7 @@ export default function Favourite() {
  
   //getting the list of favourites and pass to the table
   const fetchLikes=()=>{
-    axios.get('http://localhost:5000/api/getAll')
+    axios.get(apiUrl+'/getAll')
         .then(response => {
            let x=response.data
            if(x.length){
@@ -36,7 +37,7 @@ export default function Favourite() {
   
  // code for delete Item from Mongo
   const deleteItem=(id)=>{
-    axios.delete('http://localhost:5000/api/delete/'+id)
+    axios.delete(apiUrl+'/delete/'+id)
     .then(response => {
         fetchLikes()
     });

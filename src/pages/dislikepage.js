@@ -6,6 +6,7 @@ import Container from "@mui/material/Container";
 import axios from 'axios';
 import ListOfQuestions from './../components/list'
 import '../CssStyling/favoriteDislikeStyling.css'
+import apiUrl from "../pages/api";
 export default function Favourite() {
 
   const [list, seList] = useState([]);
@@ -13,7 +14,7 @@ export default function Favourite() {
  
 //getting the list of blacklist and pass to the table
   const fetchLikes=()=>{
-    axios.get('http://localhost:5000/api/getAll')
+    axios.get(apiUrl+'/getAll')
         .then(response => {
            let x=response.data
            if(x.length){
@@ -35,7 +36,7 @@ export default function Favourite() {
 
 // delete item from the server
   const deleteItem=(id)=>{
-    axios.delete('http://localhost:5000/api/delete/'+id)
+    axios.delete(apiUrl+'/delete/'+id)
     .then(response => {
         fetchLikes()
     });

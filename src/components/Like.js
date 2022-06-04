@@ -4,6 +4,7 @@ import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from "axios";
+import apiUrl from "../pages/api";
 
 export default function LikeDislike(props) {
 
@@ -18,7 +19,7 @@ export default function LikeDislike(props) {
    // after api call finished save the state and revert back the input field hide
    const callApi=()=>{
     const item = { status:status,reason:reason,question:props.question};
-    axios.post('http://localhost:5000/api/post', item)
+    axios.post(apiUrl+'/post', item)
         .then(response => {
             setstatus(null)
             setShowInput(false)
